@@ -36,7 +36,7 @@ Agents lose state between sessions. Design explicit state persistence:
 ### Progress File Pattern
 
 ```markdown
-# progress.md (or claude-progress.txt)
+# progress.md
 
 ## Current State
 - Feature X: 80% complete, auth flow done, UI pending

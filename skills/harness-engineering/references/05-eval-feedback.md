@@ -41,10 +41,11 @@ Periodic agents that scan the codebase for:
 - Convention violations
 - Stale TODOs or fixmes
 
-```bash
-# Run weekly or after major changes
-claude -p "Scan this codebase for inconsistencies between docs/ and actual code. Report discrepancies."
-```
+**How to run**: Schedule a periodic agent task (weekly or after major changes) with a prompt like:
+
+> "Scan this codebase for inconsistencies between docs/ and actual code. Report discrepancies."
+
+Run this via your agent's headless/non-interactive mode (e.g. CLI one-shot, CI pipeline task, or scheduled automation). The exact invocation depends on your toolchain — what matters is the pattern: **automated, periodic, agent-driven codebase audit**.
 
 This is the codebase equivalent of a garbage collector — finds drift before it becomes debt.
 
