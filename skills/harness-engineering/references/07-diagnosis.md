@@ -4,18 +4,18 @@ When the user is frustrated with agent output, the problem is almost always in t
 
 ## Symptom → Root Cause Map
 
-| User Complaint | Likely Harness Gap | Fix |
-|---|---|---|
-| "It keeps making the same mistake" | No constraint preventing it | Add lint rule / type check / test |
-| "It doesn't follow our conventions" | Conventions not documented or not discoverable | Write conventions in docs/, reference from AGENTS.md |
-| "It broke something that was working" | No regression tests | Add tests for existing behavior before changing |
-| "It goes off on tangents" | No clear task scope or feature list | Add structured feature list / execution plan |
-| "It writes mediocre code" | No examples of good code in context | Add code examples / patterns in DESIGN_NOTES.md |
-| "It forgets what we discussed" | Cross-session context not persisted | Write decisions to files, use progress.md |
-| "It declares done too early" | No verification step | Add checklist, tests, evaluator agent |
-| "It uses wrong patterns" | Competing patterns in codebase, no guidance | Document which pattern to use when |
-| "Output quality is inconsistent" | No evaluation/feedback loop | Add eval system, GC agent |
-| "It takes forever and costs too much" | Over-engineered harness or wrong architecture | Simplify — remove harness components that don't add value |
+| User Complaint | What It Looks Like | Likely Harness Gap | Fix | Supporting Artifact |
+|---|---|---|---|---|
+| "It keeps making the same mistake" | Same error pattern across sessions despite corrections | No constraint preventing it | Add lint rule / type check / test | Custom lint rule or test file |
+| "It doesn't follow our conventions" | Wrong naming, wrong patterns, wrong file locations | Conventions not documented or not discoverable | Write conventions in `docs/`, reference from `AGENTS.md` | `DESIGN_NOTES.md` |
+| "It broke something that was working" | Passing tests start failing after agent changes | No regression tests | Add tests for existing behavior before changing | Test suite |
+| "It goes off on tangents" | Agent starts several features, finishes none cleanly | No clear task scope or feature list | Add structured feature list / execution plan | `features.json` |
+| "It writes mediocre code" | Generic, template-like output lacking project personality | No examples of good code in context | Add code examples / patterns in `DESIGN_NOTES.md` | `DESIGN_NOTES.md` with examples |
+| "It forgets what we discussed" | New session spends most time rediscovering setup and status | Cross-session context not persisted | Write decisions to files, use `progress.md` | `progress.md` |
+| "It declares done too early" | Agent claims done after code edits but before runnable proof | No verification step | Add checklist, tests, evaluator agent | Clean-state checklist |
+| "It uses wrong patterns" | Competing patterns used inconsistently across codebase | Competing patterns, no guidance on which to use | Document which pattern to use when | `DESIGN_NOTES.md` with pattern guide |
+| "Output quality is inconsistent" | Review quality depends on reviewer's taste or memory | No evaluation / feedback loop | Add eval system, scoring rubric, GC agent | Evaluator rubric |
+| "It takes forever and costs too much" | Agent spends more time on compliance than actual work | Over-engineered harness or wrong architecture | Simplify — remove harness components that don't add value | Simplification log |
 
 ## Diagnosis Process
 

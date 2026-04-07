@@ -108,6 +108,72 @@ git add -A && git commit -m "harness: initial project setup"
 
 This gives agents a clean baseline to diff against and revert to if needed.
 
+## Harness Assessment (Five-Subsystem Scoring)
+
+Before building or improving a harness, assess its current maturity. Score each subsystem 1–5:
+
+| Subsystem | What To Score | 5 (Exemplary) | 3 (Adequate) | 1 (Missing) |
+|-----------|---------------|---------------|---------------|-------------|
+| **Instructions** | AGENTS.md, docs/ hierarchy, routing layer | Short entry point, progressive disclosure, current | Has AGENTS.md but monolithic or stale | No entry point |
+| **State** | progress.md, feature list, session handoff | Machine-readable, updated every session | Exists but inconsistently updated | No state tracking |
+| **Verification** | Tests, lint, type-check, smoke runs | Explicit commands, agent runs before claiming done | Some tests exist but agent skips them | No verification |
+| **Scope** | One-feature-at-a-time, definition of done | Agent constrained to single feature, clear done criteria | Loose scope, agent sometimes overreaches | No scope control |
+| **Lifecycle** | init.sh, clean-state checklist, handoff | Structured startup + cleanup, next session picks up cleanly | Has init script but no end-of-session discipline | Ad hoc startup |
+
+**The lowest-scoring subsystem is the bottleneck.** Focus improvement efforts there first. Don't try to fix everything at once.
+
+## Startup Flow (Standard 9-Step)
+
+Every agent session should follow this order:
+
+1. Run `pwd` — confirm the repository root
+2. Read AGENTS.md — get orientation and routing
+3. Read progress file — recover durable state from last session
+4. Read feature list — understand what's done and what's next
+5. Review `git log --oneline -5` — see recent changes
+6. Run init.sh / bootstrap — install, verify, health check
+7. Run a baseline smoke test — if broken, fix baseline before new work
+8. Select ONE unfinished feature — highest priority
+9. Work only on that feature until verified or explicitly blocked
+
+**Why this order matters:**
+- `pwd` prevents accidental work in the wrong directory
+- Progress and feature files recover state before new edits begin
+- Recent commits explain what changed most recently
+- init.sh standardizes startup instead of relying on memory
+- Baseline verification catches broken starting states before new work hides them
+
+## Clean-State Checklist (End of Session)
+
+Before ending any agent session:
+
+- [ ] Standard startup path still works
+- [ ] Standard verification path still runs
+- [ ] Current progress recorded in progress log
+- [ ] Feature state reflects what's actually passing vs. unverified
+- [ ] No half-finished step left undocumented
+- [ ] Next session can continue without manual repair
+
+## Prompt Calibration (What Goes Where)
+
+The root instruction file (AGENTS.md) should define the operating frame, not every possible move.
+
+**Keep in the root file:**
+- Repository purpose and scope
+- Startup path
+- Verification path
+- Non-negotiable constraints
+- Required state artifacts
+- End-of-session rules
+
+**Move out of the root file:**
+- Long historical edge cases
+- Topic-specific implementation details
+- Local architecture notes (→ put near the code: DESIGN_NOTES.md)
+- Examples that only apply to one subsystem
+
+**Working rule:** If the root file is becoming a dumping ground for every past failure, split the detail into smaller documents and link to them instead. A fresh session should orient itself quickly from the root file.
+
 ## Quality Scoring (Optional)
 
 For larger docs/, add quality metadata:

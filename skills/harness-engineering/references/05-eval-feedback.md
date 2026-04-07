@@ -136,3 +136,108 @@ When an agent plans its work, capture that plan as a file:
 ```
 
 Plans are auditable, reviewable, and can be evaluated before execution begins.
+
+## Evaluator Rubric (Post-Implementation Review)
+
+Before accepting agent output, score it against a fixed rubric. This converts "does it look right?" into a structured, repeatable judgment.
+
+### Standard 6-Category Rubric
+
+| Category | Question | Score (0-2) | Notes |
+|---|---|---|---|
+| **Correctness** | Does the implemented behavior match the requested feature? | | |
+| **Verification** | Did the required checks actually run, with evidence? | | |
+| **Scope discipline** | Did the session stay inside the chosen feature scope? | | |
+| **Reliability** | Does the result survive restart or rerun without repair? | | |
+| **Maintainability** | Is the code and documentation clear enough for the next session? | | |
+| **Handoff readiness** | Can a fresh session continue work from repo artifacts only? | | |
+
+### Scoring
+
+- **2**: Fully met, with evidence
+- **1**: Partially met or met without evidence
+- **0**: Not met or not attempted
+
+### Verdict
+
+Based on the total score:
+- **Accept** (10-12): Output meets all criteria. Merge/ship.
+- **Revise** (6-9): Fixable gaps. Agent continues in same session.
+- **Block** (0-5): Fundamental problems. Restart with corrected harness.
+
+### Required Follow-Up (on Revise/Block)
+
+```markdown
+- Missing evidence: <what verification is needed>
+- Required fixes: <specific items to address>
+- Next review trigger: <when to re-evaluate>
+```
+
+Use this rubric consistently across sessions. It surfaces harness gaps — if agents repeatedly score low on the same category, that category needs better harness support (constraints, context, or feedback loops).
+
+## Quality Score Tracking
+
+For projects with ongoing agent work, maintain a living quality score document. This tracks whether the repository is getting stronger or weaker over time.
+
+### Grading Scale
+
+- **A**: Verified, legible, stable, boundaries enforced
+- **B**: Working with minor gaps
+- **C**: Partially working, notable confusion or instability
+- **D**: Broken, unsafe, or structurally unclear
+
+### Product Domain Grades
+
+Track quality per domain area of the product:
+
+| Domain | Grade | Verification | Agent Legibility | Test Stability | Key Gaps | Last Updated |
+|---|---|---|---|---|---|---|
+| `auth` | B | Tests pass | Clear DESIGN_NOTES | 2 flaky | Token refresh edge case | 2025-01-15 |
+| `dashboard` | C | Manual only | No docs | None | No automated tests | 2025-01-15 |
+
+### Architectural Layer Grades
+
+Track quality per technical layer:
+
+| Layer | Grade | Boundary Enforcement | Agent Legibility | Key Gaps | Last Updated |
+|---|---|---|---|---|---|
+| Types | A | Strict mode, no `any` | Self-documenting | — | 2025-01-15 |
+| Services | B | Lint rules | DESIGN_NOTES exists | Missing error handling docs | 2025-01-15 |
+| UI | C | None | No component docs | Need component catalog | 2025-01-15 |
+
+### Benchmark Snapshots
+
+Record eval results over time to measure harness effectiveness:
+
+| Date | Harness Variant | Completion Rate | Retries | Defects Before Review | Notes |
+|---|---|---|---|---|---|
+| 2025-01-10 | baseline | 60% | 3.2 | 5 | Before adding DESIGN_NOTES |
+| 2025-01-15 | + DESIGN_NOTES | 80% | 1.5 | 2 | Significant improvement |
+
+### Simplification Log
+
+Track when harness components are removed and whether quality degraded:
+
+| Date | Component Removed | Outcome | Decision |
+|---|---|---|---|
+| 2025-01-20 | Verbose auth comments | Unchanged | Keep removed |
+| 2025-01-25 | Pre-commit type check | Degraded | Restore |
+
+This log enforces the "remove what the model no longer needs" discipline. If removal doesn't degrade quality, the component was dead weight.
+
+## Method Map (Failure Mode → Fix)
+
+When agent work fails, use this map to quickly identify the right fix. Each failure mode has a primary fix and a supporting artifact.
+
+| Failure Mode | What It Looks Like | Primary Fix | Supporting Artifact |
+|---|---|---|---|
+| **Cold-start confusion** | New session spends most time rediscovering setup and status | Make the repository the system of record | `progress.md` |
+| **Scope sprawl** | Agent starts several features, finishes none cleanly | Restrict active scope to one feature | `features.json` / structured feature list |
+| **Premature completion** | Agent claims done after code edits but before runnable proof | Bind completion to evidence (tests pass, app runs) | Clean-state checklist |
+| **Fragile startup** | Every session re-learns how to boot the project | Standardize setup and verification | `init.sh` |
+| **Weak handoff** | Next session can't tell what's verified, broken, or next | End with explicit structured handoff | Session handoff template |
+| **Subjective review** | Review quality depends on taste or memory | Score output with fixed rubric categories | Evaluator rubric (see above) |
+
+### Operating Principle
+
+Add the **smallest artifact** that directly addresses the observed failure mode. Avoid solving every reliability problem by dumping more text into one global instruction file — each problem gets its own targeted fix.
