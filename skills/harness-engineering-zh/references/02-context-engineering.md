@@ -29,6 +29,17 @@ docs/architecture.md (当 Agent 处理架构时加载)
 
 **将 AGENTS.md 作为路由**：它不直接包含知识 —— 它将 Agent 路由到知识所在的地方。就像一本书的目录，而不是整本书。
 
+### 指令膨胀 (Instruction Bloat)
+
+AGENTS.md 应保持在 **50–200 行**。超过这个范围，信噪比下降，Agent 会出现"中间遗忘"效应 —— 长文档中间的指令获得的关注度远低于开头和结尾。
+
+指令膨胀的迹象：
+- AGENTS.md 超过 300 行
+- 同一概念在不同章节中被重复陈述
+- 从未触发的规则（模型本身已经掌握了）
+
+**对策**：将详细内容移至 `docs/` 文件中。保持 AGENTS.md 仅作为路由索引，只内联那些关键的、始终需要的规则。
+
 ## 工作状态管理 (Working State Management)
 
 Agent 在不同会话 (session) 间会丢失状态。设计显式的状态持久化机制：
@@ -112,8 +123,9 @@ Auth 系统位于 src/auth/。登录流程：login.ts → validate.ts → sessio
 ## 将 Context Window 视为 RAM
 
 - Context Window 填满 → Agent 失去连贯性
-- **压缩 (Compaction)**（总结旧的 Context）：维持连续性，但不会消除"Context 焦虑"
-- **Context 重置**（全新的 Agent + 交接产物）：干净的开始，需要良好的交接文档
+- **Context 焦虑 (Context Anxiety)**：当 Agent 接近 Context 上限时，会表现出"过早收敛"行为 —— 急于完成、跳过验证步骤、输出质量下降。这是一个被观察到的行为模式，不是比喻。
+- **压缩 (Compaction)**（总结旧的 Context）：维持连续性，但不能完全消除 Context 焦虑
+- **Context 重置**（全新的 Agent + 交接产物）：干净的开始，消除 Context 焦虑，需要良好的交接文档
 - 选择取决于模型：某些模型能很好地处理长 Context，而有些则会性能下降
 
 ### 交接产物 (Handoff Artifact) 结构

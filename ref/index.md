@@ -63,3 +63,4 @@
 044 - arXiv: 2603.25723 https://arxiv.org/pdf/2603.25723
 045 - Alchain Tweet https://x.com/AlchainHust/status/2037407418104283253
 046 - Huxpro Tweet https://x.com/Huxpro/status/2036993665965416601
+047 - WalkingLabs: Learn Harness Engineering (12-lecture course) https://github.com/walkinglabs/learn-harness-engineering

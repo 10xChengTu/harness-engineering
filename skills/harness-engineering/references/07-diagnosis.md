@@ -87,6 +87,15 @@ Signs the harness is over-engineered:
 - Harness rules that never trigger (the model learned past them)
 - Cost/time significantly higher without proportional quality gain
 
+### How to Simplify
+
+1. **Disable one component** (lint rule, constraint, doc file) and benchmark: did output quality drop?
+2. If no measurable drop → remove it permanently
+3. If quality dropped → keep it, document why it's needed
+4. Repeat for each suspect component
+
+**Harness entropy grows over time** (Lehman's Law applied to agent infrastructure). Without active cleanup, rules accumulate and slow agents down. Schedule periodic simplification — treat it as maintenance, not optimization.
+
 **Remove harness components when the model no longer needs them.** Models improve — yesterday's scaffolding is today's dead weight.
 
 ## Harness as Dataset

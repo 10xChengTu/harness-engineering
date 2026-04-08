@@ -18,6 +18,12 @@ Runs once at the start. Creates:
 - `features.json` — structured feature list with status
 - Initial git commit — clean baseline
 
+**Bootstrap Contract**: The initializer is done when a new agent can:
+1. **Start** — environment runs with one command (`init.sh`)
+2. **Test** — test suite passes on the baseline
+3. **See progress** — progress file shows what's done and what's next
+4. **Pick up** — next steps are unambiguous enough to begin immediately
+
 ### Worker Agent
 Runs iteratively. For each cycle:
 1. Read progress file
@@ -148,5 +154,18 @@ Catching errors early prevents compound failures that are hard to debug.
 
 - **Premature completion**: Agent declares "done" when it's not. Fix: explicit feature checklist + verification step.
 - **Scope drift**: Agent adds unrequested features. Fix: structured feature list, agent checks against it.
+- **WIP > 1**: Agent works on multiple features simultaneously, finishing none completely. Fix: enforce **WIP=1** — complete and verify one feature before starting the next. Overreach and under-finish are co-occurring problems.
 - **Undocumented state**: Agent makes changes without recording them. Fix: mandatory progress updates.
 - **Big bang testing**: Testing only at the end. Fix: test after each feature.
+
+## Session Exit Checklist
+
+Before ending a session, verify all five dimensions are clean:
+
+1. **Build**: Project compiles / passes typecheck
+2. **Tests**: All tests pass (no new failures)
+3. **Progress**: Progress file updated with current state
+4. **Artifacts**: No uncommitted changes, no temp files left behind
+5. **Startup**: A new agent can resume using only on-disk artifacts (bootstrap contract holds)
+
+**Session exit is a completion requirement, not a courtesy.** An unclean exit transfers debugging cost to the next session.

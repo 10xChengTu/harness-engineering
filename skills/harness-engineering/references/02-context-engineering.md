@@ -29,6 +29,17 @@ docs/architecture.md (loaded when agent works on architecture)
 
 **AGENTS.md as router**: It doesn't contain knowledge — it routes to knowledge. Like a table of contents, not the book.
 
+### Instruction Bloat
+
+AGENTS.md should stay **50–200 lines**. Beyond that, signal-to-noise ratio drops and agents suffer from "lost in the middle" — instructions in the middle of a long document get less attention than those at the start or end.
+
+Signs of instruction bloat:
+- AGENTS.md exceeds 300 lines
+- Same concept restated in different sections
+- Rules that never triggered (model already knows them)
+
+**Fix**: Move detailed content to `docs/` files. Keep AGENTS.md as a routing index with only critical, always-needed rules inline.
+
 ## Working State Management
 
 Agents lose state between sessions. Design explicit state persistence:
@@ -112,8 +123,9 @@ What doesn't survive:
 ## Context Window as RAM
 
 - Context window fills up → agent loses coherence
-- **Compaction** (summarize old context): Maintains continuity but doesn't reset "context anxiety"
-- **Context reset** (fresh agent + handoff artifact): Clean start, requires good handoff docs
+- **Context anxiety**: As agents approach their context limit, they exhibit "premature convergence" — rushing to finish, skipping verification steps, and producing lower-quality output. This is an observed behavior pattern, not a metaphor.
+- **Compaction** (summarize old context): Maintains continuity but doesn't fully reset context anxiety
+- **Context reset** (fresh agent + handoff artifact): Clean start, eliminates context anxiety, requires good handoff docs
 - Choice depends on model: Some models handle long contexts well, others degrade
 
 ### Handoff Artifact Structure
