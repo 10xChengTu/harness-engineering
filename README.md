@@ -4,10 +4,16 @@ An [agent skill](https://skills.sh) for setting up and improving **harness engin
 
 > **Harness = the operating system for AI agents.** Model is CPU, context window is RAM, harness is OS.
 
+📖 **English** | **[中文](skills/harness-engineering-zh/SKILL.md)**
+
 ## Install
 
 ```bash
+# English version
 npx skills add 10xChengTu/harness-engineering
+
+# 中文版
+npx skills add 10xChengTu/harness-engineering-zh
 ```
 
 ## What It Does
@@ -39,6 +45,18 @@ The skill includes 7 reference modules that the agent consults as needed:
 | **Eval & Feedback** | Testing agent output, grading, observability, feedback loops |
 | **Long-Running Tasks** | Progress tracking, context resets, handoff artifacts |
 | **Diagnosis** | When agents underperform — symptom → root cause mapping |
+
+## Bilingual Skills / 双语 Skill
+
+This project provides two installable skills with identical content in different languages:
+
+```bash
+# English
+npx skills add 10xChengTu/harness-engineering
+
+# 中文
+npx skills add 10xChengTu/harness-engineering-zh
+```
 
 ## Why This Exists
 
