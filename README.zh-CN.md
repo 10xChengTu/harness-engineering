@@ -1,4 +1,6 @@
-<h1>harness-engineering <sup><a href="README.md">English</a> | <strong>中文</strong></sup></h1>
+<div align="right"><a href="README.md">English</a> | <strong>中文</strong></div>
+
+# harness-engineering
 
 一个 [Agent Skill](https://skills.sh)，用于搭建和优化 **Harness 工程** — 让 AI Agent 在你的代码库上高效工作的基础设施。
 

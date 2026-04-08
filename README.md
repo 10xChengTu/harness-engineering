@@ -1,4 +1,6 @@
-<h1>harness-engineering <sup><strong>English</strong> | <a href="README.zh-CN.md">中文</a></sup></h1>
+<div align="right"><strong>English</strong> | <a href="README.zh-CN.md">中文</a></div>
+
+# harness-engineering
 
 An [agent skill](https://skills.sh) for setting up and improving **harness engineering** — the infrastructure that makes AI agents work effectively on your codebase.
 
