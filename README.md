@@ -1,10 +1,8 @@
-# harness-engineering
+<h1>harness-engineering <sup><strong>English</strong> | <a href="README.zh-CN.md">中文</a></sup></h1>
 
 An [agent skill](https://skills.sh) for setting up and improving **harness engineering** — the infrastructure that makes AI agents work effectively on your codebase.
 
 > **Harness = the operating system for AI agents.** Model is CPU, context window is RAM, harness is OS.
-
-📖 **English** | **[中文](skills/harness-engineering-zh/SKILL.md)**
 
 ## Install
 
