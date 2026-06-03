@@ -10,10 +10,10 @@ An [agent skill](https://skills.sh) for setting up and improving **harness engin
 
 ```bash
 # English version
-npx skills add 10xChengTu/harness-engineering
+npx skills add 10xChengTu/harness-engineering/skills/harness-engineering
 
 # 中文版
-npx skills add 10xChengTu/harness-engineering-zh
+npx skills add 10xChengTu/harness-engineering/skills/harness-engineering-zh
 ```
 
 ## What It Does
@@ -52,10 +52,10 @@ This project provides two installable skills with identical content in different
 
 ```bash
 # English
-npx skills add 10xChengTu/harness-engineering
+npx skills add 10xChengTu/harness-engineering/skills/harness-engineering
 
 # 中文
-npx skills add 10xChengTu/harness-engineering-zh
+npx skills add 10xChengTu/harness-engineering/skills/harness-engineering-zh
 ```
 
 ## Why This Exists
