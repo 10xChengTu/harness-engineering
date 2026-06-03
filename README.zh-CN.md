@@ -10,10 +10,10 @@
 
 ```bash
 # English version
-npx skills add 10xChengTu/harness-engineering
+npx skills add 10xChengTu/harness-engineering/skills/harness-engineering
 
 # 中文版
-npx skills add 10xChengTu/harness-engineering-zh
+npx skills add 10xChengTu/harness-engineering/skills/harness-engineering-zh
 ```
 
 ## 功能介绍
@@ -52,10 +52,10 @@ npx skills add 10xChengTu/harness-engineering-zh
 
 ```bash
 # English
-npx skills add 10xChengTu/harness-engineering
+npx skills add 10xChengTu/harness-engineering/skills/harness-engineering
 
 # 中文
-npx skills add 10xChengTu/harness-engineering-zh
+npx skills add 10xChengTu/harness-engineering/skills/harness-engineering-zh
 ```
 
 ## 为什么做这个
