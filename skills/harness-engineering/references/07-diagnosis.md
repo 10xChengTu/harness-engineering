@@ -16,6 +16,8 @@ When the user is frustrated with agent output, the problem is almost always in t
 | "It uses wrong patterns" | Competing patterns in codebase, no guidance | Document which pattern to use when |
 | "Output quality is inconsistent" | No evaluation/feedback loop | Add eval system, GC agent |
 | "It takes forever and costs too much" | Over-engineered harness or wrong architecture | Simplify — remove harness components that don't add value |
+| "The loop never stops / declares success falsely" | No machine-checkable stop condition; maker grading its own work | Build the verifier first, separate checker — see `08-loops.md` |
+| "It repeats old mistakes across sessions / memory files are bloated and stale" | No memory consolidation or forgetting | Curator agent, merge-over-append — see `09-memory.md` |
 
 ## Diagnosis Process
 

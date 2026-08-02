@@ -7,6 +7,7 @@ What agents see determines what they do. Context engineering = designing the inf
 **Prompt Engineering** = what you say to the agent
 **Context Engineering** = what you show the agent
 **Harness Engineering** = the whole system (context + constraints + feedback + architecture)
+**Loop Engineering** = how the system runs itself (see `08-loops.md`)
 
 ## Progressive Disclosure
 
@@ -119,6 +120,8 @@ What doesn't survive:
 - Verbal agreements ("we decided to use X approach")
 
 **Rule**: If a decision matters, it must be written to a file. Verbal context is lost context.
+
+To design cross-session memory as a system — lifecycle, consolidation, forgetting — see `09-memory.md`.
 
 ## Context Window as RAM
 

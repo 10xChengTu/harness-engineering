@@ -1,6 +1,6 @@
 ---
 name: harness-engineering-zh
-description: "为 AI Agent 友好的代码库搭建和改进 Harness 工程（包括 AGENTS.md、docs/、Lint 规则、Eval 系统、项目级 Prompt 工程）。触发场景：为 AI Agent 设置新项目/空项目，创建 AGENTS.md 或 CLAUDE.md，关于 Harness 工程的问题，让 Agent 在代码库上更高效地工作。当用户感到沮丧或抱怨 Agent 质量时也会触发（例如：'Agent 总是无视规范'、'它从不听从指令'、'为什么它总是做错 X'、'Agent 坏了'）— 因为 Agent 输出质量差几乎总是意味着 Harness 缺失，而不是模型问题。涵盖：Context 工程、架构约束、多 Agent 协作、评估、长运行任务 Harness 以及 Agent 质量问题诊断。"
+description: "为 AI Agent 友好的代码库搭建和改进 Harness 工程（包括 AGENTS.md、docs/、Lint 规则、Eval 系统、项目级 Prompt 工程）。触发场景：为 AI Agent 设置新项目/空项目，创建 AGENTS.md 或 CLAUDE.md，关于 Harness 工程的问题，让 Agent 在代码库上更高效地工作。当用户感到沮丧或抱怨 Agent 质量时也会触发（例如：'Agent 总是无视规范'、'它从不听从指令'、'为什么它总是做错 X'、'Agent 坏了'）— 因为 Agent 输出质量差几乎总是意味着 Harness 缺失，而不是模型问题。涵盖：Context 工程、架构约束、多 Agent 协作、评估、长运行任务 Harness、Agent 循环（自主运行、验证器、停止条件）、Agent 记忆（跨会话记忆、记忆管护）以及 Agent 质量问题诊断。"
 ---
 
 # Harness Engineering
@@ -30,6 +30,7 @@ Harness = 为项目中工作的 AI Agent 提供的操作系统。Model 是 CPU�
 4. **约束 (Constraints)** — 添加护栏和 Linters → 阅读 `references/03-constraints.md`
 5. **评估 (Evaluate)** — 设置反馈循环 → 阅读 `references/05-eval-feedback.md`
 6. 如果项目涉及多 Agent 或长任务 → 阅读 `references/04-multi-agent.md`, `references/06-long-running.md`
+7. 如果 Agent 将无人值守运行（定时任务、CI 循环）→ 阅读 `references/08-loops.md`；如果希望 Agent 跨会话越用越懂 → 阅读 `references/09-memory.md`
 
 ### 对于诊断 (Agent 表现不佳)
 
@@ -51,6 +52,8 @@ Harness = 为项目中工作的 AI Agent 提供的操作系统。Model 是 CPU�
 | **多 Agent 架构 (Multi-Agent Architecture)** | Agent 分离、协作协议、委派模式 | `04-multi-agent.md` |
 | **Eval 与反馈 (Eval & Feedback)** | 测试、评分、GC Agent、可观测性 | `05-eval-feedback.md` |
 | **长运行任务 (Long-Running Tasks)** | 进度跟踪、Context 重置、交付产物 | `06-long-running.md` |
+| **循环 (Loops)** | 验证器、停止条件、护栏、自主运行 | `08-loops.md` |
+| **记忆 (Memory)** | 跨会话记忆、index-then-fetch、记忆整理、遗忘 | `09-memory.md` |
 | **诊断 (Diagnosis)** | 当 Agent 失败时 — 在 Harness 中识别根因，而非模型 | `07-diagnosis.md` |
 
 ## 自我更新协议

@@ -88,6 +88,7 @@ Updated: 2025-01-15T14:30:00Z
 - Pass handoff artifact with full state
 - Pros: Clean context, no "anxiety", fresh reasoning
 - Cons: Higher latency, must encode all state in artifact
+- The extreme form is fresh-context iteration (the Ralph pattern): a brand-new agent every iteration, all state in the repo — see `08-loops.md`.
 
 ### Compaction (In-Place Summary)
 - Summarize early conversation, continue in same session

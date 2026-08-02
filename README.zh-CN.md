@@ -34,7 +34,7 @@ npx skills add 10xChengTu/harness-engineering/skills/harness-engineering-zh
 
 ## 涵盖内容
 
-该 Skill 包含 7 个参考模块，Agent 会按需查阅：
+该 Skill 包含 9 个参考模块，Agent 会按需查阅：
 
 | 模块 | 涵盖内容 |
 |---|---|
@@ -44,6 +44,8 @@ npx skills add 10xChengTu/harness-engineering/skills/harness-engineering-zh
 | **多 Agent 架构** | Agent 分离、协调协议、委派模式 |
 | **评估与反馈** | 测试 Agent 输出、评分、可观测性、反馈循环 |
 | **长时间运行任务** | 进度追踪、Context 重置、交接产物 |
+| **循环 (Loops)** | 验证器、停止条件、护栏、全新上下文迭代、循环栈 |
+| **记忆 (Memory)** | 记忆生命周期、文件 vs 数据库、index-then-fetch、记忆整理、遗忘 |
 | **诊断** | 当 Agent 表现不佳时 — 症状 → 根因映射 |
 
 ## 双语 Skill

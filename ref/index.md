@@ -58,6 +58,19 @@
 041 - LangChain: Evaluating Deep Agents https://blog.langchain.com/evaluating-deep-agents-our-learnings/
 042 - LangChain: Improving Deep Agents with Harness https://blog.langchain.com/improving-deep-agents-with-harness-engineering/
 
+## Loops
+048 - Addy Osmani: Loop Engineering https://addyosmani.com/blog/loop-engineering/
+049 - Geoffrey Huntley: Ralph Wiggum as a "software engineer" https://ghuntley.com/ralph/
+050 - LangChain: The Art of Loop Engineering https://www.langchain.com/blog/the-art-of-loop-engineering
+055 - Justin3go: Loop Engineering 完整拆解 https://justin3go.com/posts/2026/07/08-loop-engineering-from-prompting-to-designing-loops
+
+## Memory
+051 - Letta: Benchmarking AI Agent Memory https://www.letta.com/blog/benchmarking-ai-agent-memory/
+052 - arXiv: CoALA — Cognitive Architectures for Language Agents https://arxiv.org/abs/2309.02427
+053 - arXiv: Memory in the Age of AI Agents https://arxiv.org/abs/2512.13564
+054 - arXiv: Mem0 — Scalable Long-Term Memory https://arxiv.org/abs/2504.19413
+056 - Justin3go: Agent 的记忆：从无状态模型到持久心智 https://justin3go.com/posts/2026/06/04-agent-memory-architecture-guide
+
 ## Other
 043 - OpenAI: Harness Engineering https://openai.com/zh-Hans-CN/index/harness-engineering/
 044 - arXiv: 2603.25723 https://arxiv.org/pdf/2603.25723

@@ -7,6 +7,7 @@ Agent 看到的内容决定了它们的操作。Context Engineering = 为 Agent 
 **Prompt Engineering** = 你对 Agent 说什么
 **Context Engineering** = 你给 Agent 看什么
 **Harness Engineering** = 整个系统（Context + 约束 + 反馈 + 架构）
+**Loop 工程 (Loop Engineering)** = 系统如何自己转起来（见 `08-loops.md`）
 
 ## 渐进式披露 (Progressive Disclosure)
 
@@ -119,6 +120,8 @@ Auth 系统位于 src/auth/。登录流程：login.ts → validate.ts → sessio
 - 口头约定（"我们决定使用 X 方案"）
 
 **规则**：如果一个决策很重要，就必须写入文件。口头的 Context 就是丢失的 Context。
+
+要把跨会话记忆当作一个系统来设计——生命周期、整理、遗忘——见 `09-memory.md`。
 
 ## 将 Context Window 视为 RAM
 

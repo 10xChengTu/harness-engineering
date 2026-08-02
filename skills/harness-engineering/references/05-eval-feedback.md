@@ -40,6 +40,7 @@ Periodic agents that scan the codebase for:
 - Dead code or unused imports
 - Convention violations
 - Stale TODOs or fixmes
+- Memory rot — stale or duplicate entries in MEMORY.md / memory files (see `09-memory.md`)
 
 **How to run**: Schedule a periodic agent task (weekly or after major changes) with a prompt like:
 

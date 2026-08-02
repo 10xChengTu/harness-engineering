@@ -1,6 +1,6 @@
 ---
 name: harness-engineering
-description: "Set up and improve harness engineering (AGENTS.md, docs/, lint rules, eval systems, project-level prompt engineering) for AI-agent-friendly codebases. Triggers on: new/empty project setup for AI agents, AGENTS.md or CLAUDE.md creation, harness engineering questions, making agents work better on a codebase. ALSO triggers when users are frustrated or complaining about agent quality — e.g. 'the agent keeps ignoring conventions', 'it never follows instructions', 'why does it keep doing X', 'the agent is broken' — because poor agent output almost always signals harness gaps, not model problems. Covers: context engineering, architectural constraints, multi-agent coordination, evaluation, long-running agent harness, and diagnosis of agent quality issues."
+description: "Set up and improve harness engineering (AGENTS.md, docs/, lint rules, eval systems, project-level prompt engineering) for AI-agent-friendly codebases. Triggers on: new/empty project setup for AI agents, AGENTS.md or CLAUDE.md creation, harness engineering questions, making agents work better on a codebase. ALSO triggers when users are frustrated or complaining about agent quality — e.g. 'the agent keeps ignoring conventions', 'it never follows instructions', 'why does it keep doing X', 'the agent is broken' — because poor agent output almost always signals harness gaps, not model problems. Covers: context engineering, architectural constraints, multi-agent coordination, evaluation, long-running agent harness, agent loops (autonomous operation, verifiers, stop conditions), agent memory (cross-session memory, consolidation), and diagnosis of agent quality issues."
 ---
 
 # Harness Engineering
@@ -30,6 +30,7 @@ Harness = the operating system for AI agents working on your project. Model is C
 4. **Constraints** — Add guardrails and linters → read `references/03-constraints.md`
 5. **Evaluate** — Set up feedback loops → read `references/05-eval-feedback.md`
 6. If project involves multi-agent or long tasks → read `references/04-multi-agent.md`, `references/06-long-running.md`
+7. If agents will run unattended (scheduled tasks, CI loops) → read `references/08-loops.md`; if agents should learn across sessions → read `references/09-memory.md`
 
 ### For Diagnosis (Agent Not Performing Well)
 
@@ -51,6 +52,8 @@ Assess current harness maturity, identify weakest layer, improve one layer at a 
 | **Multi-Agent Architecture** | Agent separation, coordination protocols, delegation patterns | `04-multi-agent.md` |
 | **Eval & Feedback** | Testing, grading, GC agents, observability | `05-eval-feedback.md` |
 | **Long-Running Tasks** | Progress tracking, context resets, handoff artifacts | `06-long-running.md` |
+| **Loops** | Verifiers, stop conditions, guardrails, autonomous operation | `08-loops.md` |
+| **Memory** | Cross-session memory, index-then-fetch, consolidation, forgetting | `09-memory.md` |
 | **Diagnosis** | When agents fail — identify root cause in harness, not model | `07-diagnosis.md` |
 
 ## Self-Update Protocol

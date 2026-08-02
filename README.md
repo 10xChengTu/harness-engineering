@@ -34,7 +34,7 @@ This skill teaches your AI agent how to build and maintain the harness layer for
 
 ## What's Covered
 
-The skill includes 7 reference modules that the agent consults as needed:
+The skill includes 9 reference modules that the agent consults as needed:
 
 | Module | What It Covers |
 |---|---|
@@ -44,6 +44,8 @@ The skill includes 7 reference modules that the agent consults as needed:
 | **Multi-Agent Architecture** | Agent separation, coordination protocols, delegation patterns |
 | **Eval & Feedback** | Testing agent output, grading, observability, feedback loops |
 | **Long-Running Tasks** | Progress tracking, context resets, handoff artifacts |
+| **Loops** | Verifiers, stop conditions, guardrails, fresh-context iteration, loop stack |
+| **Memory** | Memory lifecycle, files vs databases, index-then-fetch, consolidation, forgetting |
 | **Diagnosis** | When agents underperform — symptom → root cause mapping |
 
 ## Bilingual Skills / 双语 Skill

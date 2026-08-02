@@ -81,6 +81,8 @@ This bridges the gap between high-level specs and implementation verification.
 - **Easier calibration**: Tuning an evaluator for skepticism is easier than making a generator self-critical
 - **Focused context**: Each agent has optimized context for its role
 
+Iron rule: **the checker is never the same agent as the maker.** This applies to stop conditions too — let a separate evaluator judge "done" (see `08-loops.md`).
+
 ### When Evaluator Adds Value
 The evaluator earns its cost when tasks are at the **edge of model capability**. As models improve, the boundary moves — tasks that needed evaluation before may not anymore. Re-assess periodically.
 
